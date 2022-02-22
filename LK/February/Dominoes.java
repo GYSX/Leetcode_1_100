@@ -2,9 +2,8 @@ import java.util.*;
 public class Dominoes {
     public static void main(String[] args) {
         Scanner cin = new Scanner(System.in);
-        //String Do = cin.next();
-        String Do =".RR..";
-       // System.out.print("0123456789\n");
+        String Do = cin.next();
+        System.out.print("0123456789\n");
         System.out.print(Do+"\n");
         String rDo=pushDominoes(Do);
         System.out.print(rDo);
