@@ -1,20 +1,26 @@
-import java.util.Scanner;
-public class 两数之和 {
-    public static void main(String[] args) {
-        Scanner cin = new Scanner(System.in);
-        int[] nums = {2,7,11,15};
-        int target= 9;
-        int[] rnums=twoSum(nums,target);
-        System.out.print(rnums[0]+""+rnums[1]);
+public class HelloWorld {
+    public static void main(String []args) {
+        int x = 11;
+        boolean rx=isPalindrome(x);
+        System.out.print(rx);
     }
-    public static int[] twoSum(int[] nums, int target) {//暴力
-        for (int i=0;i<nums.length;i++){
-            for (int j=i+1;j<nums.length;j++){
-                if (nums[i] + nums[j]==target) {
-                    return new int[]{i,j};
-                }
-            }
-        }
-        return new int[]{1, 2};
+public static boolean isPalindrome(int x) {
+    	if (x<0||x%10==0) {
+			if(x==0)return true;
+    		return false;
+    	}
+      int y=0,X=x;
+      while(X>y) 
+	  {
+		  y=y*10;
+      	y=(y+(X%10));
+      	X=(X-(X%10));
+		  X=X/10;
+		  System.out.print(X+":"+y+"\n");
+      }
+      if (X==y||X==y/10) 
+      	return true;
+      else
+        return false;
     }
 }
