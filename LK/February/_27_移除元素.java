@@ -1,23 +1,22 @@
-
-public class _26_删除有序数组中的重复项 {
-    static int[] x = {1,1,2};
+public class _27_移除元素 {
+        static int[] x = {2,1,2};
         public static void main(String[] args) {
-            int rx=removeDuplicates(x);
+            int rx=removeElement(x,1);
             System.out.println(rx);
             for (int i=0;i<x.length;i++)
                 System.out.print(x[i]);
         }
-    public static int removeDuplicates(int[] nums) {
-            int a=1,b=nums[0];
+        public static int removeElement(int[] nums, int val) {
+            int a=0;
             for (int i=0;i<nums.length;i++){
-                if (nums[i]==b){
+                if (nums[i]==val){
                 }
                 else {
                     nums[a++]=nums[i];
-                    b=nums[i];
                 }
             }
-                return a;
-            }
+
+        return  a;
+        }
 
 }
