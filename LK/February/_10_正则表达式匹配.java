@@ -1,114 +1,133 @@
+import com.sun.org.apache.bcel.internal.generic.IF_ACMPEQ;
+
 public class _10_正则表达式匹配 {
 
     public static void main(String[] asgr) {
-        String s="ab";
-        String p=".*..";
-
-
+        //"mississippi""mis*is*p*."
+        //"mississippi""mis*is*ip*."
+        //"ab" ".*c"
+        //"aaa""a*a"
+        //"aa" "a"
+        String s="mississippi";
+        String p="mis*is*p*.";
         boolean a= isMatch(s,p);
         System.out.println( a );
     }
-
-    public static boolean isMatch(String s, String p) {
-        if (p.length()==2&&p.charAt(0)==46&&p.charAt(1)==42) {
-        return true;
+    public static void show(ListNode list3){
+        ListNode a=list3;
+        System.out.print(a.val+",");
+        for (;a.next!=null;){
+            a=a.next;
+            System.out.print(a.val+",");
         }
-        int a=0;
-        for (int i=0,j=0;j<p.length();i++,j++){
+    }
+    public static class ListNode {
+        char val;
+        ListNode next;
+        ListNode() {}
+    }
+    public static boolean isMatch(String s, String p) {
+        ListNode P=csh(p);
 
-            char s_c=s.charAt(i);
-            char p_c=p.charAt(j);
-            System.out.println("<"+s_c+p_c+">");
-            if (s_c!=p.charAt(j)){
+        System.out.println();
+        show(P);
+        System.out.println();
 
-                if (p_c>=97&&p_c<=122){
-                    if ((j+1)<p.length()) {
-                        if (p.charAt(j + 1) == 42) {
-                            System.out.println("假a*");
-                            j = j + 1;
-                            i--;
-                            a=1;
-                            if (j>=p.length())return false;
-                        } else {
-                            System.out.println("<" + i + ":" + j + ">匹配错误");
-                            return false;
-                        }
-                    }
-                    else {
-                        System.out.println("<" + i + ":" + j + ">匹配错误");
-                        return false;
-                    }
-                }else {}
+        int n=0,m=0;
+        for (int i=0;P.next!=null;i++){
 
-                if (p_c==46){
-                }else {}
-
-                if (p_c==42){
-                    if (p.charAt(j - 1)==46) {
-                        System.out.println(".*");
-                        j--;
-                    }
-                    else {
-                        if (s_c==p.charAt(j-1)){
-                            System.out.println("a*");
-                            j--;
-                        }else {
-                            if ((j+1)<p.length()) {
-                                if (s_c == p.charAt(j + 1)||p.charAt(j + 1)==46) {
-                                        j++;
-                                } else {
-                                    System.out.println("a*-");
-                                    return false;
-                                }
-                            }else {
-                                    System.out.println("a*-："+"j+1");
-                                return false;
-                            }
-                        }
-                    }
-                }else {}
-            }else {}
-
-            if (i>=s.length()-1) {
-                if (p.charAt(j)==42)j++;
-                System.out.println("<"+i+":"+j+">"+"("+s_c+":"+(j + 2)+")");
-                if (a==0&&p.length()>s.length()) {
-                    if ((p.length()-j-1)<2 )return false;
-                    for (int n=j+1;n<p.length();n=n+2){
-                        if (p.charAt(n)!=42&&(n+1)<p.length()&&p.charAt(n+1)==42){
-
-                        }
-                        else {
-                            System.out.println("结尾有其他a");
-                                return false;
-                        }
-                    }
-                    System.out.println("结尾无假a*");
-                    return true;
-                }
-
-                if (p.length()-(j + 2)==1&&p.charAt(j+1)==42)
-                {
-                    if (s_c == p.charAt(j + 2)) {
-                        return true;
-                    } else {
-                        return false;
-                    }
-                }else if (p.length()-(j + 2)==1&&p.charAt(j+1)!=42){
-                    return false;
-                }else {
-                    if (s_c==p.charAt(j)||p.charAt(j)==46) {
-                        System.out.println("a*结束");
-                        return true;
-                    }
-                    else {
-                        if (p_c==42)return true;
-                        return false;
-                    }
+            if (P.val=='1'){            //.
+                m=0;
+                if (P.next.next!=null) {
+                    n = n + 1;
                 }
             }
+            if (P.val=='0'){            //.*
+                m=Math.max(m,s.length()-n);
+            }
+            if (P.val>=97&&P.val<=122){ //a
+                System.out.println("一位确定字"+n);
+                int j=n;
+                for (;j<s.length();j++){
+                    char s_c=s.charAt(j);
+                    if (s_c==P.val) {
+                        m=0;
+                        n = j;
+                        if (P.next.next!=null) {
+                            n++;
+                        }
+                        break;
+                    }
+                }
+                if (j==s.length())return false;
+            }
+            if (P.val>=65&&P.val<=90){  //a*
+                int j=n;
+                for (;j<n+1;j++){
+                    char s_c=s.charAt(j);
+                    if (s_c==(P.val+32)) {
+                        System.out.println("<"+j+"*>");
+                        int I=j;
+                        for (;I<s.length();I++){
+                            if (s.charAt(I)!=(char)(P.val+32)||I==s.length()-1) {
+                                n=I;
+                                break;
+                            }
+                        }
+                        System.out.println("<*"+m+":"+(I-j)+">");
+                        m=m+(I-j);
+                        break;
+                    }
+                }
+
+            }
+            P=P.next;
+            System.out.println("<第"+i+"次命令-"+n+":"+m+">");
         }
-        System.out.println("<"+"p结束"+">");
-        return false;
+
+        System.out.println("<结果-"+n+":"+m+">");
+            if (m==0&&n==s.length()-1)return true;
+            if ((n+m)>=s.length()){
+                return true;
+            }else {
+                return false;
+            }
+    }
+    public static ListNode csh(String p){
+        ListNode P=new ListNode();
+        ListNode P_top=P;
+        int i;
+        for (i=0;i+1<p.length();i++){
+            char p_c=p.charAt(i);
+            if (p_c>=97&&p_c<=122){
+                if (p.charAt(i+1)==42){
+                    P.val= (char) (p_c-32);
+                    i++;
+                }else {
+                    P.val= (char) (p_c);
+                }
+            }
+            if (p_c==46){
+                if (p.charAt(i+1)==42){
+                    P.val= '0';
+                    i++;
+                }else {
+                    P.val= '1';
+                }
+            }
+            P.next=new ListNode();
+            P=P.next;
+        }
+        if (i!=p.length()) {
+            char p_c=p.charAt(p.length()-1);
+            if (p_c >= 97 && p_c <= 122) {
+                P.val = (char) (p_c);
+            }
+            if (p_c == 46) {
+                P.val = '1';
+            }
+            P.next=new ListNode();
+        }else {}
+        return P_top;
     }
 }
