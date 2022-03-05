@@ -47,12 +47,12 @@ public class _19_删除链表的倒数第N个结点 {
         int i;
         ListNode next_D=head;
         for (i=0;bottom.next!=null;i++){
+            //与走过第n个节点在记录前置节点
             if (i>=n){
                 next_D=next_D.next;
             }
             bottom=bottom.next;
         }
-        System.out.println("<"+next_D.val+">");
         if (i==0){
             return null;
         }

@@ -29,7 +29,7 @@ public class _10_正则表达式匹配_题解 {
         for (int i = 0; i <= m; ++i) {
             for (int j = 1; j <= n; ++j) {
 
-                if (p.charAt(j - 1) == '*') {
+                  if (p.charAt(j - 1) == '*') {
                     f[i][j] = f[i][j - 2];
                     if (matches(s, p, i, j - 1)) {
                         f[i][j] = f[i][j] || f[i - 1][j];
