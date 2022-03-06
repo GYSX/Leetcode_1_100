@@ -19,37 +19,25 @@ public class _36_有效的数独 {
         System.out.println(flag);
     }
     public static boolean isValidSudoku(char[][] board) {
-        Map<Character,Integer> i_map=new HashMap<>();
-        Map<Character,Integer> j_map=new HashMap<>();
-        Map<Character,Integer> n_map=new HashMap<>();
-        int i=0,j=0;
-
-        for (i=0;i<3;i++){
-            for (j=0;j<3;j++){
-                if (n_map.get(board[i][j])==null) {
-                    n_map.put(board[i][j], 0);
-                }else {
-                    return false;
-                }
-            }
-        }
-
-
-
-        for (i=0;i<9;i++){
-            for (j=0;j<9;j++){
-                if (board[i][j]!='.'){
-                    if (j_map.get(board[i][j])==null){
-                        j_map.put(board[i][j],0);
-
-                        n_map.put(board[i][j],0);
-                    }else {
-                        return false;
+        //记录行，int[i][j] i为第i行 j为数字j rows[i][j]代表第i行数字j出现的个数
+            int[][] rows = new int[9][9];
+            int[][] columns = new int[9][9];
+            int[][][] subboxes = new int[3][3][9];
+            for (int i = 0; i < 9; i++) {
+                for (int j = 0; j < 9; j++) {
+                    char c = board[i][j];
+                    if (c != '.') {
+                        int index = c - '0' - 1;
+                        rows[i][index]++;
+                        columns[j][index]++;
+                        subboxes[i / 3][j / 3][index]++;
+                        if (rows[i][index] > 1 || columns[j][index] > 1 || subboxes[i / 3][j / 3][index] > 1) {
+                            return false;
+                        }
                     }
                 }
             }
+            return true;
         }
 
-        return false;
-    }
 }
