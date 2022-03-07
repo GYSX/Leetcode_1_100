@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class 有效括号 {
+public class _20_有效括号 {
     public static void main(String[] args) {
         String s = "(()";
         boolean rs = isValid(s);

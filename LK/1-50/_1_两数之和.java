@@ -1,4 +1,4 @@
-public class 两数之和 {
+public class _1_两数之和 {
     public static void main(String []args) {
         int x = 11;
         boolean rx=isPalindrome(x);

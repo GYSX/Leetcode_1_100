@@ -1,5 +1,5 @@
 import java.util.*;
-public class Dominoes {
+public class _838_Dominoes {
     public static void main(String[] args) {
         Scanner cin = new Scanner(System.in);
         String Do = cin.next();

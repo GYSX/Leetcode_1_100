@@ -4,11 +4,12 @@
     <exclude-output />
     <content url="file://$MODULE_DIR$">
       <sourceFolder url="file://$MODULE_DIR$/LG/_1_1" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/LK/February" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/LK/1-50" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/蓝桥杯" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/练习/February" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/LK/March" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/LK/51-100" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/LK/随机题" isTestSource="false" />
       <excludeFolder url="file://$MODULE_DIR$/out_2" />
     </content>
     <orderEntry type="inheritedJdk" />

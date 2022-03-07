@@ -1,4 +1,4 @@
-public class 合并两个有序链表 {
+public class _21_合并两个有序链表 {
     public static class ListNode {
         int val;
         ListNode next;

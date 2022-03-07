@@ -1,7 +1,7 @@
 import java.text.DecimalFormat;
 import java.util.Scanner;
 
-public class 寻找两个正序数组的中位数 {
+public class _4_寻找两个正序数组的中位数 {
     public static void main(String[] args) {
         Scanner cin = new Scanner(System.in);
         int[] nums1 = {1,2,5};
