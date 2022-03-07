@@ -10,6 +10,7 @@
       <sourceFolder url="file://$MODULE_DIR$/LK/March" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/LK/51-100" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/LK/随机题" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/LK/101-150" isTestSource="false" />
       <excludeFolder url="file://$MODULE_DIR$/out_2" />
     </content>
     <orderEntry type="inheritedJdk" />

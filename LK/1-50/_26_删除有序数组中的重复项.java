@@ -4,8 +4,9 @@ public class _26_删除有序数组中的重复项 {
         public static void main(String[] args) {
             int rx=removeDuplicates(x);
             System.out.println(rx);
-            for (int i=0;i<x.length;i++)
+            for (int i=0;i<x.length;i++) {
                 System.out.print(x[i]);
+            }
         }
     public static int removeDuplicates(int[] nums) {
             int a=1,b=nums[0];
@@ -18,6 +19,6 @@ public class _26_删除有序数组中的重复项 {
                 }
             }
                 return a;
-            }
+        }
 
 }

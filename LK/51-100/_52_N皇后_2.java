@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class _51_N皇后_2 {
+public class _52_N皇后_2 {
     public static void main(String[] args){
 
 
