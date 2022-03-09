@@ -7,17 +7,18 @@ public class _80_删除有序数组中的重复项_II {
         System.out.println("结果： "+a);
     }
     public static int removeDuplicates(int[] nums) {
-        int a=1,b=nums[0];
-        int n=1;
+        int a=0,b=nums[0];
+        int n=0;
         boolean flag=true;
         for (int i=0;i<nums.length;i++){
             if (nums[i]==b){
+                if (flag) {
                 n++;
-                if (n<3&&flag){
-                    a++;
+                if (n<3){
+                    nums[a++]=nums[i];
                 }else {
                     flag=false;
-                    n=1;
+                }
                 }
             }
             else {
