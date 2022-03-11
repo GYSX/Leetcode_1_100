@@ -27,7 +27,7 @@ public class _100_相同的树 {
       }
       boolean flag=true;
       if (p.left!=null&&q.left!=null) {
-         flag=zxbl(p.left,q.left);
+         flag=flag&&zxbl(p.left,q.left);
       }else {
           if ( (p.left==null&&q.left!=null) || (p.left!=null&&q.left==null) ){
               flag= false;
@@ -39,7 +39,7 @@ public class _100_相同的树 {
       }
 
       if (p.right!=null&&q.right!=null) {
-          flag=zxbl(p.right,q.right);
+          flag=flag&&zxbl(p.right,q.right);
       }else {
           if ( (p.left==null&&q.left!=null) || (p.left!=null&&q.left==null) ){
               flag=false;
