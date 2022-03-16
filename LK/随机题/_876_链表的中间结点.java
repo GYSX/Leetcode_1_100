@@ -1,4 +1,4 @@
-public class _19_删除链表的倒数第N个结点 {
+public class _876_链表的中间结点 {
     public static void show(ListNode list3){
         ListNode a=list3;
         System.out.print(a.val+",");
@@ -11,7 +11,7 @@ public class _19_删除链表的倒数第N个结点 {
         ListNode head =new ListNode(1);
         ListNode bottom=head;
         int[] nuber={
-                1
+                1,2,3,4
         };
         int n =1;
 
@@ -24,40 +24,36 @@ public class _19_删除链表的倒数第N个结点 {
         }
 
 
-        System.out.print("");
+        System.out.println("");
         show(head);
-        System.out.print("");
+        System.out.println("");
 
-        head=removeNthFromEnd(head,n);
+        head=middleNode(head);
 
-        System.out.print("");
+        System.out.println("");
         show(head);
-        System.out.print("");
+        System.out.println("");
     }
-    public static ListNode removeNthFromEnd(ListNode head, int n) {
-
+    public static ListNode middleNode(ListNode head) {
+        if (head.next==null){
+            return head;
+        }
         ListNode bottom=head;
-        int i;
+        int i,j;
+
         ListNode next_D=head;
-        for (i=0;bottom.next!=null;i++){
-            //与走过第n个节点在记录前置节点
-            if (i>=n){
+        for (i=0,j=0;bottom.next!=null;i++){
+            int n=i/2;
+            if (j<=n){
                 next_D=next_D.next;
+                j++;
             }
             bottom=bottom.next;
         }
         if (i==0){
             return null;
         }
-        if (n>i){
-            head=head.next;
-        }
-        if (next_D.next.next!=null) {
-            next_D.next=next_D.next.next;
-        } else {
-            next_D.next=null;
-        }
 
-        return  head;
+        return  next_D;
     }
 }

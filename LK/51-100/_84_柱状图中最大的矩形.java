@@ -40,10 +40,10 @@ public class _84_柱状图中最大的矩形 {
             }
 
             //更新正在跟进的矩形集合的数据
-
             //暂时记录待回收的数据索引
             List<Integer> remove = new ArrayList<>();
             int r = 0;
+
             for (int[] n : volumeSet) {
                 if (n[0] <= heights[i]) {
                     //可以继续跟进
